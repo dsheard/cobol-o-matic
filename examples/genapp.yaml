@@ -1,0 +1,38 @@
+# GenApp -- General Insurance Application for CICS TS
+# https://github.com/cicsdev/cics-genapp
+# 31 programs, 13 copybooks, 28 JCL, 1 BMS map
+# Note: programs, copybooks, and BMS are all in base/src/ (mixed directory)
+# Recommended strategy: phased (auto-selected for 31 programs)
+
+application: GenApp - General Insurance Application
+
+source:
+  programs:
+    - ./base/src
+  copybooks:
+    - ./base/src
+  jcl:
+    - ./base/cntl
+  bms:
+    - ./base/src
+  csd: []
+  sql: []
+  recursive: true
+  extensions:
+    programs: [.cbl, .cob, .CBL, .COB]
+    copybooks: [.cpy, .copy, .CPY, .COPY]
+    jcl: [.jcl, .JCL, .prc, .PRC]
+    bms: [.bms, .BMS]
+    csd: [.csd, .CSD]
+    sql: [.sql, .SQL]
+
+output: ./output
+
+settings:
+  model: claude-sonnet-4-6
+  max_iterations: 5
+  n_stable: 2
+  confidence_threshold: medium
+  strategy: auto
+  batch_size: 3
+  large_file_threshold: 400

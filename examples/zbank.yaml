@@ -1,0 +1,35 @@
+# zBANK -- COBOL banking simulation with CICS, BMS, and VSAM
+# https://github.com/Nantero1/zBANK
+# 7 programs at repo root, no separate copybooks or JCL
+# Recommended strategy: default (auto-selected for 7 programs)
+
+application: zBANK - COBOL Banking Simulation
+
+source:
+  programs:
+    - .
+  copybooks:
+    - .
+  jcl: []
+  bms: []
+  csd: []
+  sql: []
+  recursive: false
+  extensions:
+    programs: [.cbl, .cob, .CBL, .COB]
+    copybooks: [.cpy, .copy, .CPY, .COPY]
+    jcl: [.jcl, .JCL, .prc, .PRC]
+    bms: [.bms, .BMS]
+    csd: [.csd, .CSD]
+    sql: [.sql, .SQL]
+
+output: ./output
+
+settings:
+  model: claude-sonnet-4-6
+  max_iterations: 5
+  n_stable: 2
+  confidence_threshold: medium
+  strategy: auto
+  batch_size: 3
+  large_file_threshold: 400

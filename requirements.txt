@@ -1,0 +1,8 @@
+claude-agent-sdk>=0.1.47,<1.0.0
+pyyaml>=6.0,<7.0
+python-dotenv>=1.0.0,<2.0.0
+
+# Optional: OTEL tracing (set otel_endpoint in config.yaml or OTEL_EXPORTER_OTLP_ENDPOINT env var)
+# opentelemetry-api>=1.20.0
+# opentelemetry-sdk>=1.20.0
+# opentelemetry-exporter-otlp-proto-http>=1.20.0

@@ -1,0 +1,40 @@
+# COBOL Legacy Benchmark Suite -- Investment Portfolio Management
+# https://github.com/sentientsergio/COBOL-Legacy-Benchmark-Suite
+# 42 programs (nested by role), 20 copybooks (nested), 15 JCL, 1 BMS, CSD, SQL
+# Recommended strategy: phased (auto-selected for 42 programs)
+# Note: recursive scanning is essential -- programs are in subdirectories by role
+
+application: COBOL Legacy Benchmark Suite - Investment Portfolio Management
+
+source:
+  programs:
+    - ./src/programs
+  copybooks:
+    - ./src/copybook
+  jcl:
+    - ./src/jcl
+  bms:
+    - ./src/maps
+  csd:
+    - ./src/cics
+  sql:
+    - ./src/database/db2
+  recursive: true
+  extensions:
+    programs: [.cbl, .cob, .CBL, .COB]
+    copybooks: [.cpy, .copy, .CPY, .COPY]
+    jcl: [.jcl, .JCL, .prc, .PRC]
+    bms: [.bms, .BMS]
+    csd: [.csd, .CSD]
+    sql: [.sql, .SQL]
+
+output: ./output
+
+settings:
+  model: claude-sonnet-4-6
+  max_iterations: 5
+  n_stable: 2
+  confidence_threshold: medium
+  strategy: auto
+  batch_size: 3
+  large_file_threshold: 400

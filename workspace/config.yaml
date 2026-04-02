@@ -1,0 +1,40 @@
+# AWS CardDemo -- Credit Card Management System
+# https://github.com/aws-samples/aws-mainframe-modernization-carddemo
+# 31 programs, 30+ copybooks, 37 JCL jobs, 17 BMS maps, CSD definitions
+# Recommended strategy: phased (auto-selected for 31 programs)
+
+application: CardDemo - Credit Card Management System
+
+source:
+  programs:
+    - ./app/cbl
+  copybooks:
+    - ./app/cpy
+    - ./app/cpy-bms
+  jcl:
+    - ./app/jcl
+    - ./app/proc
+  bms:
+    - ./app/bms
+  csd:
+    - ./app/csd
+  sql: []
+  recursive: true
+  extensions:
+    programs: [.cbl, .cob, .CBL, .COB]
+    copybooks: [.cpy, .copy, .CPY, .COPY]
+    jcl: [.jcl, .JCL, .prc, .PRC]
+    bms: [.bms, .BMS]
+    csd: [.csd, .CSD]
+    sql: [.sql, .SQL]
+
+output: ./output
+
+settings:
+  model: claude-sonnet-4-6
+  max_iterations: 5
+  n_stable: 2
+  confidence_threshold: medium
+  strategy: auto
+  batch_size: 3
+  large_file_threshold: 400

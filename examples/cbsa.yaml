@@ -1,0 +1,39 @@
+# CICS Banking Sample Application (CBSA)
+# https://github.com/cicsdev/cics-banking-sample-application-cbsa
+# 29 programs, 37 copybooks, 100 JCL jobs (3 dirs), 10 BMS maps, 1 CSD
+# Recommended strategy: phased (auto-selected for 29 programs)
+
+application: CBSA - CICS Banking Sample Application
+
+source:
+  programs:
+    - ./src/base/cobol_src
+  copybooks:
+    - ./src/base/cobol_copy
+  jcl:
+    - ./etc/install/base/buildjcl
+    - ./etc/install/base/db2jcl
+    - ./etc/install/base/installjcl
+  bms:
+    - ./src/base/bms_src
+  csd: []
+  sql: []
+  recursive: true
+  extensions:
+    programs: [.cbl, .cob, .CBL, .COB]
+    copybooks: [.cpy, .copy, .CPY, .COPY]
+    jcl: [.jcl, .JCL, .prc, .PRC]
+    bms: [.bms, .BMS]
+    csd: [.csd, .CSD]
+    sql: [.sql, .SQL]
+
+output: ./output
+
+settings:
+  model: claude-sonnet-4-6
+  max_iterations: 5
+  n_stable: 2
+  confidence_threshold: medium
+  strategy: auto
+  batch_size: 3
+  large_file_threshold: 400

@@ -1,0 +1,38 @@
+# Cash Account COBOL -- CICS/COBOL implementation for mainframe modernization
+# https://github.com/IBMStockTrader/cash-account-cobol
+# 1 program, 2 copybooks, 3 JCL
+# Note: programs and copybooks share the COBOL/ directory
+# Recommended strategy: default (auto-selected for 1 program)
+
+application: Cash Account - CICS/COBOL Cash Account
+
+source:
+  programs:
+    - ./COBOL
+  copybooks:
+    - ./COBOL
+  jcl:
+    - ./DB2-DDL
+    - ./VSAM
+  bms: []
+  csd: []
+  sql: []
+  recursive: true
+  extensions:
+    programs: [.cbl, .cob, .CBL, .COB]
+    copybooks: [.cpy, .copy, .CPY, .COPY]
+    jcl: [.jcl, .JCL, .prc, .PRC]
+    bms: [.bms, .BMS]
+    csd: [.csd, .CSD]
+    sql: [.sql, .SQL]
+
+output: ./output
+
+settings:
+  model: claude-sonnet-4-6
+  max_iterations: 5
+  n_stable: 2
+  confidence_threshold: medium
+  strategy: auto
+  batch_size: 3
+  large_file_threshold: 400
